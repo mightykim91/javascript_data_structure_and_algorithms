@@ -6,6 +6,9 @@ class Node {
         this.val = val;
         this.next = null;
     }
+    toString() {
+        return `data: ${this.val}, next: ${this.next}`;
+    }
 }
 
 //Define class for Singly Linked List
@@ -56,6 +59,21 @@ class SinglyLinkedList {
             return this;
         }
     }
+    //Define instance method to remove first element in list.
+    shift() {
+        //If list is empty return empty message
+        if(!this.head) {
+            return "List is empty!";
+        } else {
+            let newHead = this.head.next;
+            this.head = newHead;
+            this.length--;
+            if(this.length === 0) {
+                return "List is empty!";
+            }
+            return this.head.toString();
+        }
+    }
 }
 
 //Instantiation
@@ -65,6 +83,7 @@ singlyLinkedList.push(1);
 singlyLinkedList.push(2);
 //console.log(singlyLinkedList);
 console.log(singlyLinkedList.pop());
+console.log(singlyLinkedList.shift());
 
 //output
 /*
