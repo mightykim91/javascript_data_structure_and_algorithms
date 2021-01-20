@@ -23,6 +23,7 @@ class SinglyLinkedList {
         if(!this.head) {
             this.head = node;
             this.tail = node;
+        //#Case2(Non empty list)
         } else {
             this.tail.next = node;
             this.tail = node;
@@ -30,13 +31,40 @@ class SinglyLinkedList {
         this.length += 1;
         return this;
     }
+
+    //Define instance method for remove action(removing last node)
+    pop() {
+        //#Case1(Empty List)
+        if(!this.head){
+            return "List is empty!";
+        //#Case2(Non empty list)
+        } else {
+            //Set node to be head(for start loop from the beginning)
+            let node = this.head;
+            let newTail = node;
+            //Traverse to second element to end.
+            while(node.next != null) {
+                newTail = node;
+                node = node.next;
+            }
+            this.tail = newTail;
+            this.tail.next = null;
+            this.length -= 1;
+            if(this.length === 0) {
+                return "List is empty!";
+            }
+            return this;
+        }
+    }
 }
 
 //Instantiation
 let singlyLinkedList = new SinglyLinkedList();
 singlyLinkedList.push(0);
 singlyLinkedList.push(1);
-console.log(singlyLinkedList);
+singlyLinkedList.push(2);
+//console.log(singlyLinkedList);
+console.log(singlyLinkedList.pop());
 
 //output
 /*

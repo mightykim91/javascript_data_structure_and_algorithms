@@ -7,10 +7,10 @@
 //** Binary search only works on sorted arrays.
 
 let sampleArray = [124,121,33,23,11,2333,42,12,2];
-sampleArray = sampleArray.sort((a,b) => {
+sampleArray.sort((a,b) => {
     return a-b;
 });
-
+console.log(sampleArray);
 /*
 [Pseudocode]
 1. The function accepts sorted array and value.
@@ -27,8 +27,8 @@ right pointer at the end of the array.
 function binarySearch(arr, value) {
     let left = 0;
     let right = arr.length - 1;
-    let mid = Math.floor((left + right) / 2)
     while(left <= right) {
+        let mid = Math.floor((left + right) / 2)
         //console.log(mid, left, right);
         if(arr[mid] === value) {
             return value;
@@ -51,5 +51,5 @@ console.log(binarySearch(sampleArray, 124));
 // <Binary Search Time Complexity>
 /*
 1. Worst and Average = O(log n)
-2. Best Case = O(n)
+2. Best Case = O(1)
 */
